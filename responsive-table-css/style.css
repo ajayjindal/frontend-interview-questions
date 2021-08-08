@@ -1,0 +1,41 @@
+table {
+  border: solid 1px lightgray;
+  width: 100%;
+}
+thead,
+tr {
+  text-align: center;
+}
+td {
+  padding: 0.4em 0 0.4em 0;
+  background-color: lightgray;
+}
+
+@media screen and (max-width: 600px) {
+  td,
+  tr {
+    display: block;
+    width: 100%;
+    border: 0px;
+  }
+
+  table thead {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+  }
+  tr {
+    text-align: right;
+    float: right;
+    margin-bottom: 0.5em;
+    border: solid 1px lightgray;
+  }
+  td {
+    background-color: white;
+  }
+
+  td::before {
+    content: attr(data-label);
+    float: left;
+  }
+}
