@@ -1,0 +1,43 @@
+.jumbotron {
+  width: 100%;
+  align-items: center;
+  background: #2f3542;
+  padding: 0 5%;
+  box-sizing: border-box;
+}
+
+.jumbotron__contents {
+  width: 100%;
+}
+
+.jumbotron__title {
+  display: block;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+img {
+  display: block;
+  margin: 0 auto 0 auto;
+  width: 100%;
+  max-width: 200px;
+}
+
+.parent {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  height: 100%;
+  margin: 4vh 0 4vh 0;
+}
+
+.child {
+  flex: 50%;
+  margin: auto 3vw;
+}
+
+@media (max-width: 576px) {
+  .parent {
+    flex-direction: column;
+  }
+}
