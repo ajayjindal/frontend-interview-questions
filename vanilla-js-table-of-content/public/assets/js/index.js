@@ -3,8 +3,10 @@ import { fetchJSON } from "./backend.service.js";
 const bookID = window.location.pathname.split("/").pop();
 const chapterMap = {};
 
-// IIFE accordion
-(function initAccordion() {
+initAccordion();
+loadBookTOC();
+
+function initAccordion() {
   document.querySelector(".accordion").addEventListener("click", function (e) {
     const clickTarget = e.target;
     if (!clickTarget.matches(".accordion .a-btn")) return;
@@ -12,8 +14,8 @@ const chapterMap = {};
       if (!clickTarget.parentElement.classList.contains("active")) {
         // if panel is closed
         const chapterId = clickTarget.parentElement.firstElementChild.innerText;
-        // checking if content has already been fetched
-        if (!chapterMap[chapterId])
+        // checking if content has already been fetched and is it already loading or not
+        if (!chapterMap[chapterId] && !chapterMap[chapterId]?.loading)
           renderAccordionPanelContent(
             clickTarget.parentElement.firstElementChild.innerText,
             clickTarget.parentElement
@@ -25,10 +27,10 @@ const chapterMap = {};
       }
     }
   });
-})();
+}
 
-// IIFE book table of content
-(function loadBookTOC() {
+// book table of content
+function loadBookTOC() {
   fetchJSON(`/api/book/${bookID}`)
     .then((chapters) => {
       const listOfChapters = chapters.response.sort(compare); // sort based on given sequence
@@ -52,13 +54,14 @@ const chapterMap = {};
     .catch((error) => {
       load404(error);
     });
-})();
+}
 
 function renderAccordionPanelContent(id, target) {
+  chapterMap[id] = { loading: true };
   fetchJSON(`/api/book/${bookID}/section/${id}`)
     .then((res) => {
       const subChapters = res?.response[id]?.sort(compare);
-      chapterMap[id] = subChapters;
+      chapterMap[id] = { loading: false, subChapters: subChapters }; // loaded: true
       let template = `
         <div class="a-panel">
         ${subChapters
