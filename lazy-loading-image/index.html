@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lazy load images</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 style="text-align: center; margin-top: 4em;">Lazy Loading Images</h1>
+
+        <div class="gap"><img class="lazy-img" src="https://picsum.photos/id/1000/100/100" alt=""
+                data-src="https://picsum.photos/id/1000/4000/4000"></div>
+        <div class="gap"><img class="lazy-img" src="https://picsum.photos/id/1001/100/100" alt=""
+                data-src="https://picsum.photos/id/1001/4000/4000"></div>
+        <div class="gap"><img class="lazy-img" src="https://picsum.photos/id/1002/100/100" alt=""
+                data-src="https://picsum.photos/id/1002/2000/2000"></div>
+        <div class="gap"><img class="lazy-img" src="https://picsum.photos/id/1003/100/100" alt=""
+                data-src="https://picsum.photos/id/1003/4000/4000"></div>
+        <div class="gap"><img class="lazy-img" src="https://picsum.photos/id/1004/100/100" alt=""
+                data-src="https://picsum.photos/id/1004/4000/4000"></div>
+        <div class="gap"><img class="lazy-img" src="https://picsum.photos/id/1005/100/100" alt=""
+                data-src="https://picsum.photos/id/1005/4000/4000"></div>
+
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>

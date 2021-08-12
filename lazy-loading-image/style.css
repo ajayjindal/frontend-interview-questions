@@ -1,0 +1,24 @@
+.container {
+    width: 70%;
+    margin: 0 auto;
+}
+
+/* need to have some gap between the pictures to render them correctly */
+.gap {
+    margin-top: 20rem;
+    margin-bottom: 20rem;
+}
+
+/* just visual improvement */
+img {
+    width: 400px;
+    height: auto;
+    display: block;
+    margin: auto;
+    border-radius: 10%;
+    box-shadow: 0 5px 45px rgba(0, 0, 0, 0.4);
+}
+
+.lazy-img {
+    filter: blur(40px);
+}
