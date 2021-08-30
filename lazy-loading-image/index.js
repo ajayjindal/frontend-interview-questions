@@ -6,16 +6,16 @@ const loadImg = (entries, observer) => {
     if (!entry.isIntersecting) return;
 
     entry.target.src = entry.target.dataset.src;
-    entry.target.addEventListener('load', () => {
-        entry.target.classList.remove('lazy-img')
-    })
+    entry.target.addEventListener("load", () => {
+        entry.target.classList.remove("lazy-img");
+    });
 
-    observer.unobserve(entry.target)
+    observer.unobserve(entry.target);
 };
 
 const imgObserver = new IntersectionObserver(loadImg, {
     root: null,
-    threshold: 0
+    threshold: 0,
 });
 
 lazyImages.forEach((img) => imgObserver.observe(img));

@@ -1,0 +1,39 @@
+.container {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.tab-pane {
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+}
+
+li {
+    margin: 0 auto;
+}
+
+.nav-item {
+    color: grey;
+    border: solid 1px lightgray;
+    border-radius: 0.5rem;
+    padding: 1rem 2rem;
+    cursor: pointer;
+}
+
+.nav-tabs>.active {
+    color: white;
+    background-color: teal;
+}
+
+a {
+    color: unset;
+    text-decoration: none;
+}
